@@ -1,0 +1,1 @@
+The exericse is to create a program that prompts a user for their name, and then outputs a gretting using the inputted name.
