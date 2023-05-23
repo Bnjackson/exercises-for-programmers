@@ -1,0 +1,2 @@
+Program must prompt user to input a string, and then output the same string with the strings length. 
+Program must check that user has inputted a valid string. If they have not, program should output a message telling them to input a correct string.
