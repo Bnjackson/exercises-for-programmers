@@ -15,7 +15,7 @@ const currencies = {
     dollar : {
         poundExchangeRate : 0.81,
         euroExchangeRate : 0.94,
-        dollarExchangeRate : 139.65
+        yenExchangeRate : 139.65
     },
     yen : {
         poundExchangeRate : 0.0058,
@@ -24,13 +24,13 @@ const currencies = {
     }
 }
 
-function getUserInputs () {
+function getUserInputs() {
     console.log('This program will exchange to and from pounds, euros, dollars and yen. All inputted currencies must be in the singular and you cannot exchange the same currencies.')
     const exchangeCurrency = readlineSync.question('What is the currency you wish to exchange? ').toLowerCase();
     const amountToExchange = Number(readlineSync.question('What is the amount you wish to exchange? '))
     const exchangedCurrency = readlineSync.question('What is the currency you wish to exchange to? ').toLowerCase();
     console.log(exchangeCurrency, amountToExchange, exchangedCurrency);
-    function checkUserInputs (firstCurrency, amount, secondCurrency) {
+    function checkUserInputs(firstCurrency, amount, secondCurrency) {
         const acceptedCurrencies = ['pound', 'euro', 'dollar', 'yen'];
         for (let i = 0; i < 1; i++) {
             let checkCurrencies = 0;
@@ -52,15 +52,31 @@ function getUserInputs () {
         }
     }
     checkUserInputs(exchangeCurrency, amountToExchange, exchangedCurrency);
-    exchangeCurrencies(exchangeCurrency, amountToExchange, exchangedCurrency);
+    getExchangeRate(exchangeCurrency, amountToExchange, exchangedCurrency);
 }
 
-function exchangeCurrencies (exchangeCurrency, amountToExchange, exchangedCurrency) {
-    for (const key in currencies) {
-        if(key === exchangeCurrencies) {
-
+function getExchangeRate(exchangeCurrency, amountToExchange, exchangedCurrency) {
+    let exchangeRate;
+    for (let key in currencies) {
+        if(key === exchangeCurrency) {
+            console.log(key);
+            for(let innerKey in currencies[key]) {
+                if(innerKey === `${exchangedCurrency}ExchangeRate`) {
+                    exchangeRate = currencies[key][innerKey];
+                    console.log(exchangeRate);
+                    break;
+                }
+            }
         }
     }
+    function calcExchangedAmount(amountToExchange, exchangeRate) {
+        return amountToExchange * exchangeRate;
+    }
+    const exchangedAmount = calcExchangedAmount(amountToExchange, exchangeRate);
+    function outputExchange(exchangedAmount) {
+        console.log(`${amountToExchange} ${exchangeCurrency} at an exchange rate of ${exchangeRate} is ${exchangedAmount} ${exchangedCurrency}`);
+    }
+    outputExchange(exchangedAmount)
 }
 
 
