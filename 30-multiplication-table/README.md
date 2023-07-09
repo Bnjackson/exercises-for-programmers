@@ -1,0 +1,1 @@
+Create a program that generates multiplication tables for the numbers 0 to 12. Then output to console.
