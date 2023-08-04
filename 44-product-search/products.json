@@ -1,8 +1,24 @@
 {
-    "fruits" : [
-        {"name": "Apples", "price" : 1.20, "Quantity" : 300},
-        {"name": "Bannanas", "price" : 1.50, "Quantity" : 400},
-        {"name": "Oranges", "price" : 1.80, "Quantity" : 150},
-        {"name": "Strawberries", "price" : 2, "Quantity" : 100}
-    ]
+  "fruits": [
+    {
+      "name": "Apples",
+      "price": 1.2,
+      "Quantity": 300
+    },
+    {
+      "name": "Bannanas",
+      "price": 1.5,
+      "Quantity": 400
+    },
+    {
+      "name": "Oranges",
+      "price": 1.8,
+      "Quantity": 150
+    },
+    {
+      "name": "Strawberries",
+      "price": 2,
+      "Quantity": 100
+    }
+  ]
 }
