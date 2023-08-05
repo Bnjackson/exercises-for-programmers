@@ -1,2 +1,1 @@
-One should never utilize the word "utilize" in writing. Use "use" instead. Every instance of the word utilize should be replaced with use. There should be no instances of the word
-utilize in this file.
+One should never utilize the word utilize in writing. Use "use" instead. Every instance of the word utilize should be replaced with use. There should be no instances of the word utilize in this file. 
