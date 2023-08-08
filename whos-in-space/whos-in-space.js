@@ -10,6 +10,31 @@ async function fetchData() {
     }
 }
 
+function sortCrewByCraft(crewData) {
+    let crewSortedByCraft = {
+        ISS : [],
+        Tiangong : []
+    }
+    for (let i = 0; i < crewData.length; i++) {
+        if (crewData[i]['craft'] === 'ISS') {
+            crewSortedByCraft['ISS'].push(crewData[i]);
+        } else if (crewData[i]['craft'] === 'Tiangong') {
+            crewSortedByCraft['Tiangong'].push(crewData[i]);
+        }
+
+    }
+    return crewSortedByCraft;
+}
+
+function sortCrewAlphabetically(crewData) {
+    crewData.sort((a, b) => {
+        const lastNameA = a.name.split(' ')[1];
+        const lastNameB = b.name.split(' ')[1];
+        return lastNameA.localeCompare(lastNameB);
+    })
+    return crewData;
+}
+
 async function main() {
     let spaceCrewData;
     try {
@@ -17,7 +42,11 @@ async function main() {
     } catch (err) {
         console.log('Error importing data', err);
     }
-    console.log(spaceCrewData);
+    const crewSortedAlphabetically = sortCrewAlphabetically(spaceCrewData.people);
+    const crewSortedByCraft = sortCrewByCraft(crewSortedAlphabetically);
+    console.log(`The number of people in space right now is ${spaceCrewData.number}`);
+    console.table(crewSortedByCraft.ISS);
+    console.table(crewSortedByCraft.Tiangong);
 }
 
 main();
