@@ -1,0 +1,2 @@
+Create a simple command line application that lets you save and view notes. Connect application to a local mySQL database and store data in the database. 
+The application should be command line based and accept commands from the user.
